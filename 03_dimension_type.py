@@ -30,6 +30,7 @@ def string_checker(question, to_check):
 
         print("Your response may only be equal to one of the given options")
 
+
 # main routine
 shapes_list = ["circle", "square", "rectangle", "triangle"]
 a_p_list = ["area", "perimeter", "both"]
