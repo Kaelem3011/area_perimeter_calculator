@@ -33,9 +33,7 @@ def string_checker(question):
         print("Your response may only be equal to one of the given options")
 
 
-def calculate(shape, shape_list=[], area_list=[], perimeter_list=[]):
-    history = [shape_list, area_list, perimeter_list]
-
+def calculate(shape):
     if shape == "square":
         side_1 = int_only("What value is one of your squares sides? ",
                           "Your response may only be a number")
@@ -72,25 +70,8 @@ def calculate(shape, shape_list=[], area_list=[], perimeter_list=[]):
 
     print("Your {} area is {:.2f}".format(shape, area))
     print("Your {} perimeter is {:.2f}".format(shape, perimeter))
-    history[0].append(shape)
-    history[1].append(area)
-    history[2].append(perimeter)
-
-    keep_going = input("Press enter to keep going or any key to exit\n")
-    if keep_going == "":
-        return keep_going
-    else:
-        i = 0
-        while i < len(history[0]):
-            print("-------")
-            print("{} Area is {:.2f}".format(history[0][i], history[1][i]))
-            print("{} Perimeter is {:.2f}".format(history[0][i], history[2][i]))
-            print("-------")
-            i += 1
 
 
 # Main routine
-keep_going = ""
-while keep_going == "":
-    user_shape = string_checker("What is your chosen shape? ")
-    dimensions = calculate(user_shape)
+user_shape = string_checker("What is your chosen shape? ")
+dimensions = calculate(user_shape)

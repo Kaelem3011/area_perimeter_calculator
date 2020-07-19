@@ -90,7 +90,18 @@ def calculate(shape, shape_list=[], area_list=[], perimeter_list=[]):
 
 
 # Main routine
+
+# instructions
+print("Welcome to the Area | Perimeter calculator\n"
+      "The shapes available to be calculated are...\n"
+      "Square\n"
+      "Rectangle\n"
+      "Circle\n"
+      "Half Circle\n"
+      "parallelogram\n")
+
 keep_going = ""
 while keep_going == "":
+
     user_shape = string_checker("What is your chosen shape? ")
     dimensions = calculate(user_shape)

@@ -69,28 +69,46 @@ def calculate(shape, shape_list=[], area_list=[], perimeter_list=[]):
                           "Your response may only be a number")
         area = side_1 * side_2
         perimeter = 2 * side_1 + 2 * side_2
-
+    print()
+    print("==========================")
     print("Your {} area is {:.2f}".format(shape, area))
     print("Your {} perimeter is {:.2f}".format(shape, perimeter))
+    print("==========================\n")
     history[0].append(shape)
     history[1].append(area)
     history[2].append(perimeter)
 
-    keep_going = input("Press enter to keep going or any key to exit\n")
-    if keep_going == "":
-        return keep_going
+    print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+    print("Press enter to keep going or any key to access game summary")
+    print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+    loop = input("")
+
+    if loop == "":
+        return loop
     else:
         i = 0
         while i < len(history[0]):
-            print("-------")
+            print("-------------------")
             print("{} Area is {:.2f}".format(history[0][i], history[1][i]))
             print("{} Perimeter is {:.2f}".format(history[0][i], history[2][i]))
-            print("-------")
+            print("-------------------")
+            print()
             i += 1
 
 
 # Main routine
-keep_going = ""
-while keep_going == "":
+
+# instructions
+print("Welcome to the Area | Perimeter calculator\n"
+      "The shapes available to be calculated are...\n"
+      "Square\n"
+      "Rectangle\n"
+      "Circle\n"
+      "Half Circle\n"
+      "parallelogram\n")
+
+loop = ""
+while loop == "":
+
     user_shape = string_checker("What is your chosen shape? ")
     dimensions = calculate(user_shape)

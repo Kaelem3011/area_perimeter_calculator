@@ -1,6 +1,3 @@
-from math import pi
-
-
 def int_only(question, error):
     valid = False
     while not valid:
@@ -33,64 +30,40 @@ def string_checker(question):
         print("Your response may only be equal to one of the given options")
 
 
-def calculate(shape, shape_list=[], area_list=[], perimeter_list=[]):
-    history = [shape_list, area_list, perimeter_list]
+def shape_dimensions(shape):
 
     if shape == "square":
         side_1 = int_only("What value is one of your squares sides? ",
                           "Your response may only be a number")
-        area = side_1 * side_1
-        perimeter = side_1 * 4
+        print("All of the squares sides are equal to {}".format(side_1))
 
     if shape == "circle":
         radius = int_only("What value is your circles radius? ",
                           "Your response may only be a number")
-        area = pi * radius * radius
-        perimeter = 2 * pi * radius
+        print("Your circles radius is equal to {}".format(radius))
 
     if shape == "rectangle":
         side_1 = int_only("What value is your rectangles first side? ",
                           "Your response may only be a number")
         side_2 = int_only("What value is your rectangles second side? ",
                           "Your response may only be a number")
-        area = side_1 * side_2
-        perimeter = side_1 * 2 + side_2 * 2
+        print("Your rectangles side 1 is equal to {}\n"
+              "Your rectangles side 2 is equal to {}".format(side_1, side_2))
+
+        if shape == "parallelogram":
+            side_1 = int_only("What value is your parallelograms first side? ",
+                              "Your response may only be a number")
+            side_2 = int_only("What value is your parallelograms second side? ",
+                              "Your response may only be a number")
+            print("Your parallelograms side 1 is equal to {}\n"
+                  "Your parallelograms side 2 is equal to {}".format(side_1, side_2))
 
     if shape == "half_circle":
         radius = int_only("What value is your circles radius? ",
                           "Your response may only be a number")
-        area = (pi * radius * radius) / 2
-        perimeter = (pi * radius + (2 * radius))
-
-    if shape == "parallelogram":
-        side_1 = int_only("What value is your parallelograms first side? ",
-                          "Your response may only be a number")
-        side_2 = int_only("What value is your parallelograms second side? ",
-                          "Your response may only be a number")
-        area = side_1 * side_2
-        perimeter = 2 * side_1 + 2 * side_2
-
-    print("Your {} area is {:.2f}".format(shape, area))
-    print("Your {} perimeter is {:.2f}".format(shape, perimeter))
-    history[0].append(shape)
-    history[1].append(area)
-    history[2].append(perimeter)
-
-    keep_going = input("Press enter to keep going or any key to exit\n")
-    if keep_going == "":
-        return keep_going
-    else:
-        i = 0
-        while i < len(history[0]):
-            print("-------")
-            print("{} Area is {:.2f}".format(history[0][i], history[1][i]))
-            print("{} Perimeter is {:.2f}".format(history[0][i], history[2][i]))
-            print("-------")
-            i += 1
+        print("Your half circles radius is equal to {}".format(radius))
 
 
 # Main routine
-keep_going = ""
-while keep_going == "":
-    user_shape = string_checker("What is your chosen shape? ")
-    dimensions = calculate(user_shape)
+user_shape = string_checker("What is your chosen shape? ")
+dimensions = shape_dimensions(user_shape)
