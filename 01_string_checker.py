@@ -15,10 +15,11 @@ def string_checker(question, to_check):
 
 
 # main routine
+# list of valid shapes for component
 shapes_list = ["circle", "square", "rectangle", "triangle"]
-
+# user shape type input
 user_shape = string_checker("What is your chosen shape? ", shapes_list)
 
-# all print statements
 print()
+# users chosen shape input
 print("Your chosen shape is a {}".format(user_shape))
